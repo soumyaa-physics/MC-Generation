@@ -16,7 +16,7 @@ cd /path/to/MG5_aMC_v2_9_18
 ```
 
 ### 2. Import the MSSM Model and Generate the Process
-
+Inside the MG5 interactive shell:
 ```bash
 import model MSSM_SLHA2
 generate e+ e- > ta1- ta1+
@@ -27,30 +27,48 @@ generate e+ e- > ta1- ta1+
 ```bash
 output Pol_p80_m30_500_242stauD1p7
 ```
-edit the run_card.dat and add in the beam energies and the polarisation of the beams 
-in param_card.dat- change the values of the stau and neutralino mass. also edit the mixing angles and neutralino mixing if needed (changes according to bino or higgsino lsp). 
-calculate the decay width by using the decay.py script
+Edit the configuration files:
+1. run_card.dat: set the beam energies, beam polarization and the number of events (N)
+2. param_card.dat: set
+    - Stau and neutralino masses
+    - Mixing angles
+    - Neutralino mixing (bino vs higgsino LSP)
+
+3. Calculate the stau decay width using:
 
 ```bash
 python3 decay.py
 ```
 
-here add the neutralino type, the stau mass, delta m and mixing angles to find the decay width.
+Provide neutralino type, stau mass, Δm, and mixing angles to compute the decay width and add it to the param_card under decay of stau (10000015)
 
-change the pythia8 card as well, see example: 
+4. pythia_card.dat: Refer to example;
+```bash
 MG5_aMC_v2_9_18/Pol_p80_m30_500_200stauD1p7/Cards/pythia8_card.dat
+```
 
-now launch;
+### 4. Launch the Run
 ```bash
 launch
 ```
 
-switch on the pythia script by pressing 1 and in the next prompt you can recheck all the cards once again (run_card.dat, paramn_card.dat and pythia8_card.dat).
-simply press enter and you should get a LHE file containing N events and a pythia.hepmc file containig the pythia events.
+1. In the interactive prompt, enable Pythia by pressing 1
 
-In a seperate directory outside of MG5 preferably, download Delphes and run this pythia_hepmc file simply by;
+2. Recheck all cards (run_card.dat, param_card.dat, pythia8_card.dat)
+
+3. Press Enter to start the run
+
+4. After completion, you will get:
+    - unweighted_events.lhe → LHE file with N events
+    - pythia.hepmc → HepMC file with Pythia events
+
+
+
+### 5.Run Delphes (Outside MG5)
+In a separate directory, run Delphes on the Pythia output:
 
 ```bash
 ./DelphesHepMC3 cards/delphes_card_ILD.tcl output/output_delphes.root madgraph/.../pythia.hepmc
 
 ```
+This produces a ROOT file containing the fast detector simulation of your events.
