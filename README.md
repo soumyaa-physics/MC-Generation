@@ -2,6 +2,8 @@
 
 This README documents the workflow for generating and analyzing **stau pair production** in the **MSSM** using **MadGraph5_aMC@NLO (MG5)**, **Pythia8**, and **Delphes**.
 
+Theory reference:
+https://arxiv.org/pdf/hep-ph/0512197
 ---
 
 ## 🧩 Step-by-Step Workflow

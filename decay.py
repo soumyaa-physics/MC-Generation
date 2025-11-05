@@ -94,6 +94,12 @@ Gamma_total = max(Gamma_total, 1e-30)  # enforce tiny positive width
 tau_s = width_to_tau(Gamma_total)       # lifetime in seconds
 c_tau_mm = tau_s * c_light_m_per_s    # proper decay length in mm
 
+beam_energy = 250.0  # GeV
+gamma = beam_energy / m_stau
+beta = math.sqrt(1 - 1/gamma**2)
+lab_decay_length = beta * gamma * tau_s * c_light_m_per_s  # in meters
+
+
 # -----------------------------
 # Output
 # -----------------------------
@@ -113,7 +119,9 @@ else:
     # very long lived
     print("Gamma extremely small --> effectively long-lived on detector scales.")
     print(f"Proper lifetime tau (approx) = {tau_s:.3e} s")
-    print(f"Proper decay length c*tau (approx) = {c_tau_mm:.3f} mm")
+    print(f"Proper decay length c*tau (approx) = {c_tau_mm:.3f} mm"), 
+
+print(f"Decay length in lab frame: {lab_decay_length}")
 
 print("\nSuggested DECAY line for param_card.dat:")
 print(f"DECAY 1000015 {Gamma_total:.3e}")
