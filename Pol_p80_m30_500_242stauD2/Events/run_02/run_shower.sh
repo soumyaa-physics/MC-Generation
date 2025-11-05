@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+LD_LIBRARY_PATH=/data/dust/user/vashisht/MG5_aMC_v2_9_18/HEPTools/lib:$LD_LIBRARY_PATH /data/dust/user/vashisht/MG5_aMC_v2_9_18/HEPTools/MG5aMC_PY8_interface/MG5aMC_PY8_interface tag_1_pythia8.cmd

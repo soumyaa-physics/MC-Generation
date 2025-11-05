@@ -1,0 +1,138 @@
+#************************************************************
+#*               MadGraph5_aMC@NLO/MadEvent                 *
+#*                                                          *
+#*                *                       *                 *
+#*                  *        * *        *                   *
+#*                    * * * * 5 * * * *                     *
+#*                  *        * *        *                   *
+#*                *                       *                 *
+#*                                                          *
+#*                                                          *
+#*         VERSION 3.5.2                 2023-11-08         *
+#*                                                          *
+#*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+#*    https://server06.fynu.ucl.ac.be/projects/madgraph     *
+#*                                                          *
+#************************************************************
+#*                                                          *
+#*               Command File for MadEvent                  *
+#*                                                          *
+#*     run as ./bin/madevent.py filename                    *
+#*                                                          *
+#************************************************************
+generate_events run_04
+Traceback (most recent call last):
+  File "/cvmfs/sft.cern.ch/lcg/releases/MCGenerators/madgraph5amc/3.5.2.atlas3-2c791/x86_64-el9-gcc13-opt/madgraph/interface/extended_cmd.py", line 1546, in onecmd
+    return self.onecmd_orig(line, **opt)
+  File "/cvmfs/sft.cern.ch/lcg/releases/MCGenerators/madgraph5amc/3.5.2.atlas3-2c791/x86_64-el9-gcc13-opt/madgraph/interface/extended_cmd.py", line 1495, in onecmd_orig
+    return func(arg, **opt)
+  File "/cvmfs/sft.cern.ch/lcg/releases/MCGenerators/madgraph5amc/3.5.2.atlas3-2c791/x86_64-el9-gcc13-opt/madgraph/interface/madevent_interface.py", line 2403, in do_generate_events
+    self.run_generate_events(switch_mode, args)
+  File "/cvmfs/sft.cern.ch/lcg/releases/MCGenerators/madgraph5amc/3.5.2.atlas3-2c791/x86_64-el9-gcc13-opt/madgraph/interface/common_run_interface.py", line 7668, in new_fct
+    original_fct(obj, *args, **opts)
+  File "/cvmfs/sft.cern.ch/lcg/releases/MCGenerators/madgraph5amc/3.5.2.atlas3-2c791/x86_64-el9-gcc13-opt/madgraph/interface/madevent_interface.py", line 2597, in run_generate_events
+    self.exec_cmd('survey  %s %s' % (self.run_name,' '.join(args)),
+  File "/cvmfs/sft.cern.ch/lcg/releases/MCGenerators/madgraph5amc/3.5.2.atlas3-2c791/x86_64-el9-gcc13-opt/madgraph/interface/extended_cmd.py", line 1575, in exec_cmd
+    stop = Cmd.onecmd_orig(current_interface, line, **opt)
+  File "/cvmfs/sft.cern.ch/lcg/releases/MCGenerators/madgraph5amc/3.5.2.atlas3-2c791/x86_64-el9-gcc13-opt/madgraph/interface/extended_cmd.py", line 1495, in onecmd_orig
+    return func(arg, **opt)
+  File "/cvmfs/sft.cern.ch/lcg/releases/MCGenerators/madgraph5amc/3.5.2.atlas3-2c791/x86_64-el9-gcc13-opt/madgraph/interface/madevent_interface.py", line 3420, in do_survey
+    self.configure_directory()
+  File "/cvmfs/sft.cern.ch/lcg/releases/MCGenerators/madgraph5amc/3.5.2.atlas3-2c791/x86_64-el9-gcc13-opt/madgraph/interface/madevent_interface.py", line 5904, in configure_directory
+    self.compile(arg=[name], cwd=os.path.join(self.me_dir, 'Source'))
+  File "/cvmfs/sft.cern.ch/lcg/releases/MCGenerators/madgraph5amc/3.5.2.atlas3-2c791/x86_64-el9-gcc13-opt/madgraph/interface/extended_cmd.py", line 1641, in compile
+    return misc.compile(nb_core=self.options['nb_core'], *args, **opts)
+  File "/cvmfs/sft.cern.ch/lcg/releases/MCGenerators/madgraph5amc/3.5.2.atlas3-2c791/x86_64-el9-gcc13-opt/madgraph/various/misc.py", line 558, in compile
+    raise MadGraph5Error(error_text)
+madgraph.MadGraph5Error: A compilation Error occurs when trying to compile /data/dust/user/vashisht/MG5_aMC_v2_9_18/Pol_p80_m30_500_200stauD1p7/Source.
+The compilation fails with the following output message:
+    /cvmfs/sft.cern.ch/lcg/releases/gcc/13.1.0-b3d18/x86_64-el9/bin/gfortran -w -fPIC -O -ffixed-line-length-132  -c -o setrun.o setrun.f
+    run_card.inc:89:16:
+    
+       89 |       DSQRT_SHAT = 0.0000000000D+00
+          |                1
+    Error: Symbol 'dsqrt_shat' at (1) has no IMPLICIT type
+    run_card.inc:45:23:
+    
+       45 |       FIXED_EXTRA_SCALE = .FALSE.
+          |                       1
+    Error: Symbol 'fixed_extra_scale' at (1) has no IMPLICIT type; did you mean 'fixed_ren_scale'?
+    run_card.inc:59:14:
+    
+       59 |       IEVO_EVA = 0
+          |              1
+    Error: Symbol 'ievo_eva' at (1) has no IMPLICIT type
+    run_card.inc:57:18:
+    
+       57 |       MUE_OVER_REF = 1.0000000000D+00
+          |                  1
+    Error: Symbol 'mue_over_ref' at (1) has no IMPLICIT type
+    run_card.inc:53:19:
+    
+       53 |       MUE_REF_FIXED = 9.1188000000D+01
+          |                   1
+    Error: Symbol 'mue_ref_fixed' at (1) has no IMPLICIT type
+    run_card.inc:33:6:
+    
+       33 |       PDSUBLABEL(1) = 'none'
+          |      1
+    Error: Function 'pdsublabel' at (1) has no IMPLICIT type
+    run_card.inc:35:6:
+    
+       35 |       PDSUBLABEL(2) = 'none'
+          |      1
+    Error: Function 'pdsublabel' at (1) has no IMPLICIT type
+    make: *** [<builtin>: setrun.o] Error 1
+    
+Please try to fix this compilations issue and retry.
+Help might be found at https://answers.launchpad.net/mg5amcnlo.
+If you think that this is a bug, you can report this at https://bugs.launchpad.net/mg5amcnlo
+                              Run Options    
+                              -----------    
+               stdout_level 	:	20 (user set)
+
+                         MadEvent Options    
+                         ----------------    
+     automatic_html_opening 	:	False (user set)
+        notification_center 	:	True
+                   run_mode 	:	2
+              cluster_queue 	:	None (user set)
+               cluster_time 	:	None (user set)
+               cluster_size 	:	100
+             cluster_memory 	:	100 (user set)
+                    nb_core 	:	16 (user set)
+          cluster_temp_path 	:	None
+
+                      Configuration Options    
+                      ---------------------    
+               pythia8_path 	:	/data/dust/user/vashisht/MG5_aMC_v2_9_18/HEPTools/pythia8 (user set)
+                  hwpp_path 	:	None (user set)
+                thepeg_path 	:	None (user set)
+                 hepmc_path 	:	None (user set)
+           madanalysis_path 	:	None (user set)
+          madanalysis5_path 	:	None (user set)
+            pythia-pgs_path 	:	None (user set)
+                    td_path 	:	None (user set)
+               delphes_path 	:	/data/dust/user/vashisht/MG5_aMC_v2_9_18/Delphes (user set)
+        exrootanalysis_path 	:	None (user set)
+               syscalc_path 	:	/cvmfs/sft.cern.ch/lcg/releases/MCGenerators/syscalc/1.1.7-5d583/x86_64-el9-gcc13-opt (user set)
+                 rivet_path 	:	None
+                  yoda_path 	:	None
+                     lhapdf 	:	/cvmfs/sft.cern.ch/lcg/releases/MCGenerators/lhapdf/6.5.3-3fa11/x86_64-el9-gcc13-opt/bin/lhapdf-config (user set)
+                 lhapdf_py2 	:	/cvmfs/sft.cern.ch/lcg/releases/MCGenerators/lhapdf/6.5.3-3fa11/x86_64-el9-gcc13-opt/bin/lhapdf-config (user set)
+                 lhapdf_py3 	:	/cvmfs/sft.cern.ch/lcg/releases/MCGenerators/lhapdf/6.5.3-3fa11/x86_64-el9-gcc13-opt/bin/lhapdf-config (user set)
+                    timeout 	:	60
+              f2py_compiler 	:	None
+          f2py_compiler_py2 	:	None
+          f2py_compiler_py3 	:	None
+                web_browser 	:	None
+                 eps_viewer 	:	None
+                text_editor 	:	None
+           fortran_compiler 	:	None
+               cpp_compiler 	:	None
+                auto_update 	:	0 (user set)
+               cluster_type 	:	condor
+      cluster_status_update 	:	(600, 30)
+           cluster_nb_retry 	:	1
+         cluster_local_path 	:	None
+         cluster_retry_wait 	:	300
