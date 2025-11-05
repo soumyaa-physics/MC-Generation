@@ -6,17 +6,19 @@ import cmath
 # -----------------------------
 G_F = 1.1663787e-5       # Fermi constant [GeV^-2]
 f_pi = 0.1302            # Pion decay constant [GeV]
-theta_c = 0.227          # Cabibbo angle
+theta_c = 0.227          # Cabibbo angle in radians
 pi = math.pi
 g = 0.652                # SU(2) weak coupling constant
-theta_W = 0.231          # Weinberg angle
-c_light_m_per_s = 3e8  # speed of light in mm/s
+sin2_theta_W = 0.2312          # Weinberg angle: sin
+c_light_m_per_s = 3e8  # speed of light in m/s
 hbar_GeVs = 6.582119569e-25  # hbar in GeV*s
-v_ev = 246.0             # Higgs VEV [GeV]
+v_ev = 246.22             # Higgs VEV [GeV]
+
+theta_W = math.asin(math.sqrt(sin2_theta_W))
 
 # Particle masses [GeV]
 m_tau = 1.77686
-m_pi  = 0.13957
+m_pi  = 0.13957 #charged pion mass
 m_e   = 0.000511
 m_mu  = 0.10566
 
